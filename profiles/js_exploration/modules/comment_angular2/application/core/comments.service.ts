@@ -12,7 +12,8 @@ export class CommentsService {
 	}
 
 	getComments(nodeID:number) {
-		var url: string = `/node/${nodeID}/comments?_format=json`
+		var url: string = `node/${nodeID}/comments`;
+		url = Drupal.url(url);
 		return this.http.get(url)
 			.map(res => res.json());
 	}

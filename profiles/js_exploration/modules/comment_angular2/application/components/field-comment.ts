@@ -18,7 +18,7 @@ export class TwigTranslatePipe implements PipeTransform {
 	// selector: 'angular2-comment-field',
 	selector: 'angular2-comment-field',
 
-	templateUrl: '/profiles/js_exploration/themes/baked/templates/field--comment.html.twig',
+	templateUrl: Drupal.url('profiles/js_exploration/themes/baked/templates/field--comment.html.twig'),
 	// template: TwigHtml,
 
 	directives: [CommentsList],
@@ -30,7 +30,7 @@ export class TwigTranslatePipe implements PipeTransform {
 export class FieldComment {
 
 	private comments: string = '<angular2-comment-list></angular2-comment-list>';
-	private label: string = "{{ 'Unlink' | t }}";
+	private label: string = "{{ 'Unlink' }}";
 	private title_suffix: string = '(from Angular 2)';
 	private label_hidden: boolean = false;
 	private field_name: string = 'field_name_1';
