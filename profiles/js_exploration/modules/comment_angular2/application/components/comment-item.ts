@@ -6,7 +6,7 @@ import {Component, Input} from 'angular2/core';
 	template: `
 			<div>	
 				<h3> {{comment.subject[0].value}}</h3>
-				<p>{{comment.comment_body[0].value}}</p>
+				<p [innerHTML]="comment.comment_body[0].value"></p>
 				-by: {{comment.name[0].value}}
 			</div>
 	`,

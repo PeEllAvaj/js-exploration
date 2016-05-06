@@ -7,12 +7,11 @@ import 'rxjs/add/observable/interval';
 
 @Injectable()
 export class CommentsService {
-	constructor(http:Http){
-	this.http=http;
+	constructor(private http:Http){
 	}
 
-	getComments(nodeID:number) {
-		var url: string = `node/${nodeID}/comments`;
+	getComments(path : string) {
+		var url: string = `${path}/comments`;
 		url = Drupal.url(url);
 		return this.http.get(url)
 			.map(res => res.json());
