@@ -14,7 +14,12 @@
 
 1 Uninstall and re-install the module everytime you are switching branches.
 
+1 Modify `/profiles/js_exploration/modules/comment_angular2/vendor/config.js` if you are using drupal in a subfolder
+
+Most of the work for this project is stored in `profiles/js_exploration/` and the `modules/comment_angular2` subfolder.
+
 
 ### Seeing the Angular2 Comments in action
+1 Verify you have enabled permissions to view the comments on a node
 
 1 Vist a URL that looks something like  /node/1#comments , make sure you have some comments added in.
