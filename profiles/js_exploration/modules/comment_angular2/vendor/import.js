@@ -1,1 +1,1 @@
-System.import('application/app.ts').catch(console.error.bind(console));
+System.import('app').catch(function(err){ console.error(err);  });

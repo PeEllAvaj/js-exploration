@@ -6,20 +6,14 @@ angular2-with-twig:
     url: https://github.com/angular/angular/blob/master/LICENSE
     gpl-compatible: true
   js:
-    vendor/angular2-polyfills.js: {}
-    vendor/system.js: {}
-    vendor/typescript.js: {}
-    # Not loaded from CDN because customized.
+    https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js: { type: external, minified: true }
+    https://npmcdn.com/zone.js@0.6.12?main=browser: { type: external, minified: true }
+    https://npmcdn.com/reflect-metadata@0.1.3: { type: external, minified: true }
+    https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.27/system.js: { type: external, minified: true }
+    https://npmcdn.com/typescript@1.8.10/lib/typescript.js: { type: external, minified: true }
+    
     vendor/config.js: {}
     vendor/import.js: {}
-    vendor/Rx.js: {}
-    # Not loaded from CDN because customized.
-    vendor/angular2.0.0-beta.1.js: {}
-    vendor/http.min.js: {}
-  dependencies:
-    - comment_angular2/twig-drupal
-  # For now, all of this needs to be loaded from the header (<head>) and should
-  # therefore block the rest of the page.
   header: true
 
 twig:

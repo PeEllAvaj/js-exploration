@@ -5,23 +5,22 @@ x.innerHTML = '<angular-comments-block>Loading Angular component</angular-commen
 
 
 
-import {Component, Pipe, OnInit, ViewEncapsulation} from 'angular2/core';
-import {AsyncPipe} from "angular2/pipes";
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {Component, Pipe, OnInit, ViewEncapsulation} from '@angular/core';
+import {Http, HTTP_PROVIDERS} from '@angular/http';
 import {CommentItem} from'./comment-item';
 import {CommentsService} from '../core/comments.service'
-import {FieldComment} from './field-comment';
-import {CommonCommentFields} './common-comment-fields';
+//import {FieldComment} from './field-comment';
+import {CommonCommentFields} from './common-comment-fields';
 
 
 @Component({
 	selector: 'angular-comments-block',
 	providers: [CommentsService, HTTP_PROVIDERS],
-	directives:[CommentItem, FieldComment, CommentItem],
+	directives:[CommentItem, CommentItem], // FieldComment, 
 	template: `
 		<div class="angular-comment-block">
 			<h2> Comments -via Angular</h2>
-			<comment-item  *ngFor='#comment of comments '[comment]="comment"></comment-item>
+			<comment-item  *ngFor='let comment of comments '[comment]="comment"></comment-item>
 		</div>
 		<hr/>
 		<angular2-comment-field></angular2-comment-field>

@@ -2,7 +2,7 @@ import {
 	Component,
 	Pipe,
 	PipeTransform
-} from 'angular2/core';
+} from '@angular/core';
 import {CommentsList} from './comments-list';
 
 @Pipe({
@@ -18,7 +18,7 @@ export class TwigTranslatePipe implements PipeTransform {
 	// selector: 'angular2-comment-field',
 	selector: 'angular2-comment-field',
 
-	templateUrl: Drupal.url('profiles/js_exploration/themes/baked/templates/field--comment.html.twig'),
+	//templateUrl: Drupal.url('profiles/js_exploration/themes/baked/templates/field--comment.html.twig'),
 	// template: TwigHtml,
 
 	directives: [CommentsList],
