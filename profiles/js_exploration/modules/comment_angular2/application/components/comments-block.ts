@@ -1,22 +1,19 @@
-//Need help how the angular-comments-block DOM tag can be placed in the template
-
+// Temporary to place the angular-comments-block DOM tag can be placed in the template
 var x = document.querySelector('#block-baked-content > article > div.node__content > section')
 x.innerHTML = '<angular-comments-block>Loading Angular component</angular-comments-block>'
 
-
-
-import {Component, Pipe, OnInit, ViewEncapsulation} from '@angular/core';
-import {Http, HTTP_PROVIDERS} from '@angular/http';
-import {CommentItem} from'./comment-item';
-import {CommentsService} from '../core/comments.service'
-//import {FieldComment} from './field-comment';
-import {CommonCommentFields} from './common-comment-fields';
+import { Component, Pipe, OnInit, ViewEncapsulation } from '@angular/core';
+import { Http, HTTP_PROVIDERS } from '@angular/http';
+import { CommentItem } from'./comment-item';
+import { CommentsService } from '../core/comments.service'
+import { CommonCommentFields } from './common-comment-fields';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
 	selector: 'angular-comments-block',
 	providers: [CommentsService, HTTP_PROVIDERS],
-	directives:[CommentItem, CommentItem], // FieldComment, 
+	directives:[CommentItem],
 	template: `
 		<div class="angular-comment-block">
 			<h2> Comments -via Angular</h2>
@@ -27,20 +24,14 @@ import {CommonCommentFields} from './common-comment-fields';
 	`,
 	styles: [`
 		.angular-comment-block { border:thin solid #ccc; background:#eaeaea; }
-	`],
-	encapsulation: ViewEncapsulation.Emulated
+	`]
 })
 export class CommentsBlock implements OnInit {
 	public comments: Object;
-	constructor(private _commentsService: CommentsService) {
-	}
+	constructor(private _commentsService: CommentsService) {}
 
 	ngOnInit(){
-		this.getComments();
-	}
-
-	getComments(){
-	 this._commentsService.getComments(drupalSettings.path.currentPath)
+		this._commentsService.getComments(drupalSettings.path.currentPath)
 	 	.subscribe(data => { this.comments=data})
 	}
 }
